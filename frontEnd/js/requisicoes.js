@@ -7,7 +7,7 @@ function enviarForm() {
 	data['telefone'] = form.telefone.value;
 	data['email'] = form.email.value;
 	// console.log(JSON.stringify(data));
-	fetch('localhost:8080/TrabalhoWEB/backEnd/Cliente', {
+	fetch('localhost:80/TrabalhoWEB/backEnd/Cliente', {
 		method: 'POST',       
 		body: JSON.stringify(data)
 	})
@@ -21,4 +21,5 @@ function enviarForm() {
 	})
 	.then((data) => console.log(data))
 	.catch(err => console.log('Error message:', err.statusText));
+}
 }

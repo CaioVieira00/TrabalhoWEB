@@ -4,10 +4,11 @@
 		    <meta charset="UTF-8">
 		    <meta name="description" content="Cadastro">
     	<meta name="viewport" content="width=device-width">
+      <script src="js/requisicoes.js"></script>
 		    <title>Cadastro</title>
 </head>
 	<body>
-    <form action="javascript:enviarForm()">
+    <form id="adicionarCliente"action="javascript:enviarForm()">
       <header>
         <h2 id="titulo">Cadastro</h2>
       </header>
@@ -15,19 +16,42 @@
         <section>
           <label class="form-label-code" >
             Nome:
-            <input type="text" value="">
+            <input type="text" value="" id="nome">
           </label>
           <label>
             Telefone:
-            <input type="text" value="">
+            <input type="text" value="" id="telefone">
           </label>
           <label>
             E-mail:
-            <input type="text" value="">
+            <input type="text" value="" id="email">
           </label>
-          <input type="button" name="cadastrar" value="Cadastrar">
+          <input onclick="window.location.href = 'index.html'" type="submit" name="cadastrar" value="Cadastrar">
         </section>
       </fieldset>
     </form>
+    <script type="text/javascript">
+      function enviarForm() {
+  var form = document.getElementById('adicionarCliente');
+  var data = {};
+  data['nome'] = form.nome.value; 
+  data['telefone'] = form.telefone.value;
+  data['email'] = form.email.value;
+  // console.log(JSON.stringify(data));
+  fetch('http://localhost/TrabalhoWEB/backEnd/Cliente', {
+    method: 'POST', 
+    body: JSON.stringify(data)
+  })
+  .then((response) => {
+    if (response.ok) {
+      return response.json() 
+    } else {
+      return Promise.reject({ status: res.status, statusText: res.statusText });
+    }   
+
+  })
+  .then((data) => console.log(data))
+  .catch(err => console.log('Error message:', err.statusText));
+}</script>
   </body>
 </html>

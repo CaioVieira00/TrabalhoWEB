@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+
 //define('PASTAPROJETO', 'AulaBanco');
 define('PASTAPROJETO', 'TrabalhoWEB/backEnd');
 
