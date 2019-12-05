@@ -1,6 +1,6 @@
 <?php
 //define('PASTAPROJETO', 'AulaBanco');
-define('PASTAPROJETO', 'TRABALHOWEB/backEnd');
+define('PASTAPROJETO', 'TrabalhoWEB/backEnd');
 
 /* Função criada para retornar o tipo de requisição */
 function checkRequest() {

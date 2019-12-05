@@ -39,11 +39,11 @@ class Cliente extends Conexao {
     }
     
     public function insert($obj){    
-    	$sql = "INSERT INTO Cliente(nome,email,telefone) VALUES (:nome,:email,:telefone)";
+    	$sql = "INSERT INTO Cliente(nome,telefone,email) VALUES (:nome,:telefone,:email)";
     	$consulta = Conexao::prepare($sql);
         $consulta->bindValue('nome',  $obj->nome);
-        $consulta->bindValue('email' , $obj->email);
         $consulta->bindValue('telefone' , $obj->telefone);
+        $consulta->bindValue('email' , $obj->email);
     	return $consulta->execute();
 
 	}
