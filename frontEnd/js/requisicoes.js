@@ -1,7 +1,7 @@
 window.onload = function(e) {
 
 	    fetch(
-        'http://localhost:80/TrabalhoWEB/backEnd/Cliente', {
+        'http://localhost:8080/TrabalhoWEB/backEnd/Cliente', {
         }).then(response => response.json())
     .then(data => { 
         console.log(data);
@@ -25,7 +25,7 @@ function enviarForm() {
 	data['telefone'] = form.telefone.value;
 	data['email'] = form.email.value;
 	// console.log(JSON.stringify(data));
-	fetch('http://localhost:80/TrabalhoWEB/backEnd/Cliente', {
+	fetch('http://localhost:8080/TrabalhoWEB/backEnd/Cliente', {
 		method: 'POST',       
 		body: JSON.stringify(data)
 	})
