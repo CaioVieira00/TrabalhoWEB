@@ -39,7 +39,7 @@ class Cliente extends Conexao {
     }
     
     public function insert($obj){    
-    	$sql = "INSERT INTO Cliente(nome,telefone,email) VALUES (:nome,:telefone,:email)";
+    	$sql = "INSERT INTO cliente(nome,telefone,email) VALUES (:nome,:telefone,:email)";
     	$consulta = Conexao::prepare($sql);
         $consulta->bindValue('nome',  $obj->nome);
         $consulta->bindValue('telefone' , $obj->telefone);
@@ -49,7 +49,7 @@ class Cliente extends Conexao {
 	}
 
 	public function findAll(){
-		$sql = "SELECT * FROM Cliente";
+		$sql = "SELECT * FROM cliente";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();

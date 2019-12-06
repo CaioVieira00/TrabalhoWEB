@@ -1,6 +1,5 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-
 //define('PASTAPROJETO', 'AulaBanco');
 define('PASTAPROJETO', 'TrabalhoWEB/backEnd');
 
@@ -34,7 +33,7 @@ $request = $_SERVER['REQUEST_URI']; // IDENTIFICA A URI DA REQUISIÇÃO
 
 switch ($request) {
     case '/'.PASTAPROJETO.'/Cliente' :
-        require __DIR__ . '../api/'.$answer.'_Cliente.php';
+        require __DIR__ . '/api/'.$answer.'_Cliente.php';
         break;
     
     default:

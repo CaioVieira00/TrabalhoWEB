@@ -5,12 +5,16 @@
 		    <meta name="description" content="Cadastro">
     	<meta name="viewport" content="width=device-width">
       <script src="js/requisicoes.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		    <title>Cadastro</title>
 </head>
 	<body>
-    <form id="adicionarCliente"action="javascript:enviarForm()">
+    <div class="container fluid">
+    <div class="row">
+      <div class="col-md-12">
+    <form class ="text-center" id="adicionarCliente" action="javascript:enviarForm()">
       <header>
-        <h2 id="titulo">Cadastro</h2>
+        <h2 class="text-center" id="titulo">Cadastro</h2>
       </header>
       <fieldset>
         <section>
@@ -26,32 +30,25 @@
             E-mail:
             <input type="text" value="" id="email">
           </label>
-          <input onclick="window.location.href = 'index.html'" type="submit" name="cadastrar" value="Cadastrar">
+          <input onclick="window.location.href = 'index.html'" type="submit" name="cadastrar" value="Cadastrar" class="btn btn-primary btn-outline">
         </section>
       </fieldset>
     </form>
-    <script type="text/javascript">
-      function enviarForm() {
-  var form = document.getElementById('adicionarCliente');
-  var data = {};
-  data['nome'] = form.nome.value; 
-  data['telefone'] = form.telefone.value;
-  data['email'] = form.email.value;
-  // console.log(JSON.stringify(data));
-  fetch('http://localhost/TrabalhoWEB/backEnd/Cliente', {
-    method: 'POST', 
-    body: JSON.stringify(data)
-  })
-  .then((response) => {
-    if (response.ok) {
-      return response.json() 
-    } else {
-      return Promise.reject({ status: res.status, statusText: res.statusText });
-    }   
-
-  })
-  .then((data) => console.log(data))
-  .catch(err => console.log('Error message:', err.statusText));
-}</script>
+    </div>
+  </div>
+  </div>
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-dark table-bordered" id="tabeladeclientes">
+                    <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                    </tr> 
+                 </table>
+               </div>
+            </div>
+        </div>
   </body>
 </html>
